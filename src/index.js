@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App.js';
+// styles
+import './style/tailwind.css';
 
-const Index = () => {
-	return <div>WELCOME TO REACT APP!</div>;
-};
-ReactDOM.render(<Index />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
