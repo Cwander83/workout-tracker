@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost:27017/workoutTracker', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
-  useCreateIndex: true,
+	useCreateIndex: true,
 });
 
 const db = mongoose.connection;
@@ -25,6 +25,7 @@ db.once('open', function () {
 
 app.use(express.static(DIST_DIR));
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', api);

@@ -8,9 +8,20 @@ const opts = {
 
 const User = new Schema(
 	{
-		username: String,
+		username: {
+			type: String,
+			trim: true,
+			unique: [true, 'That username is taken.'],
+			required: [true, 'Enter a username.'],
+		},
+        email: {
+            type: String,
+			trim: true,
+			unique: [true, 'That email is taken.'],
+			required: [true, 'Required, used for username recovery.'],
+        },
 
-		notes: String,
+		notes: { type: String },
 		exercises: [{ type: Schema.Types.ObjectId, ref: 'Workout' }],
 	},
 	opts

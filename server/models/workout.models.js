@@ -8,12 +8,10 @@ const opts = {
 
 const workout = new Schema(
 	{
-		name: String,
-
-		set: Number,
-		weight: Number,
-
-		reps: Number,
+		name: { type: String, required: [true, 'Enter exercise name.'] },
+		set: { type: Number, trim: true },
+		weight: { type: Number, trim: true },
+		reps: { type: Number, trim: true },
 	},
 	opts
 );
