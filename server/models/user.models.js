@@ -6,16 +6,14 @@ const opts = {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
 };
 
-const workout = new Schema(
+const User = new Schema(
 	{
-		name: String,
+		username: String,
 
-		set: Number,
-		weight: Number,
-
-		reps: Number,
+		notes: String,
+		exercises: [{ type: Schema.Types.ObjectId, ref: 'Workout' }],
 	},
 	opts
 );
 
-module.exports = mongoose.model('Workout', workout);
+module.exports = mongoose.model('User', User);
