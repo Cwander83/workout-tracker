@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const Profile = () => {
 	const [username, setUsername] = useState('');
 	const [data, setData] = useState([]);
-	
 
 	// onchange handler
 	const usernameHandler = (e) => {

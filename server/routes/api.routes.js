@@ -13,7 +13,7 @@ router.route('/').get((req, res) =>
 		.then((user) => {
 			res.status(200).json(user);
 		})
-			.catch((err) => {
+		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);
 		})
@@ -62,10 +62,10 @@ router.route('/addExercise/:id').post((req, res) => {
 			)
 		)
 		.then((result) => res.status(200).json(result))
-			.catch((err) => {
+		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);
-		});;
+		});
 });
 
 //put
@@ -74,10 +74,10 @@ router.route('/addExercise/:id').post((req, res) => {
 router.route('/updateUser/:id').put((req, res) => {
 	db.User.findByIdAndUpdate(req.params.id, req.body)
 		.then((result) => res.status(200).json(result))
-			.catch((err) => {
+		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);
-		});;
+		});
 });
 
 // delete
@@ -86,19 +86,19 @@ router.route('/updateUser/:id').put((req, res) => {
 router.route('/workout/:id').delete((req, res) => {
 	db.Workout.findByIdAndRemove(req.params.id)
 		.then((result) => res.status(200).json())
-			.catch((err) => {
+		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);
-		});;
+		});
 });
 // ** Remove User
 router.route('/workout/:username').delete((req, res) => {
 	db.Workout.findOneAndRemove({ username: req.params.username })
 		.then((result) => res.status(200).json())
-			.catch((err) => {
+		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);
-		});;
+		});
 });
 
 module.exports = router;
