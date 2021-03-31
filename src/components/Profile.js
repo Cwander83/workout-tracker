@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import {Container} from '../containers/Container.js'
+
 const Profile = () => {
 	const [username, setUsername] = useState('');
 	const [data, setData] = useState([]);
@@ -17,7 +19,7 @@ const Profile = () => {
 
 	console.log(username);
 	return (
-		<div className="flex flex-col justify-center text-center">
+		<Container>
 			<label className="" htmlFor="username">
 				enter username to find history
 			</label>
@@ -50,7 +52,7 @@ const Profile = () => {
 					})}
 				</ul>
 			</div>
-		</div>
+		</Container>
 	);
 };
 

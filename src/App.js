@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
+// react router
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+
+// components
 import Header from './components/Header.js';
-import Profile from './components/Profile.js';
+
+// routes
+import routes from './routes/routes.js';
+
+// context
+import { StoreProvider } from './context/user.js';
 
 function App() {
-	// const [data, setData] = useState([]);
-	// useEffect(() => {
-	// 	fetch('/api/')
-	// 		.then((res) => res.json())
-	// 		.then((results) => setData(results));
-	// }, []);
-
 	return (
-		<div className="h-full w-full bg-grayish">
-			<Header />
-			<div className="w-full flex flex-row justify-evenly">
-				<section className="w-2/5 bg-primary">
-					<Profile />
-				</section>
-				<section className="w-2/5 bg-white">
-					<h3>workout</h3>
-				</section>
-			</div>
-		</div>
+		<>
+			<StoreProvider>
+				<Router>
+					<main className="h-full bg-grayish max-w-screen-sm mx-auto my-auto shadow-lg">
+						<Header />
+
+						<Switch>{routes}</Switch>
+					</main>
+				</Router>
+			</StoreProvider>
+		</>
 	);
 }
 
