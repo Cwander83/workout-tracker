@@ -21,7 +21,7 @@ const User = new Schema(
 			required: [true, 'Required, used for username recovery.'],
         },
 
-		notes: { type: String },
+		goal: { type: String },
 		exercises: [{ type: Schema.Types.ObjectId, ref: 'Workout' }],
 	},
 	opts

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // conponents
 import Login from './Login.js'
 import { Container } from '../containers/Container.js';
+import SignUp from './SignUp.js';
+import UpdateUser from './UpdateUser.js';
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
 			<h3>Tracker</h3>
 			<section>
 				<Login />
+				<SignUp />
+				<UpdateUser />
 			</section>
 		</Container>
 	);

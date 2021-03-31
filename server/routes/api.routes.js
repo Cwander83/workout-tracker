@@ -33,6 +33,18 @@ router.route('/:username').get((req, res) =>
 			res.send(err.errors);
 		})
 );
+// ** Get Call Search by username
+router.route('/email/:email').get((req, res) =>
+	db.User.find({
+		email: req.params.email,
+	})
+
+		.then((user) => res.status(200).json(user))
+		.catch((err) => {
+			console.error(err);
+			res.send(err.errors);
+		})
+);
 
 // post
 
@@ -70,10 +82,12 @@ router.route('/addExercise/:id').post((req, res) => {
 
 //put
 
-// ** Update username or email
+// ** Update user goal
 router.route('/updateUser/:id').put((req, res) => {
-	db.User.findByIdAndUpdate(req.params.id, req.body)
+	console.log('***** id: ' + req.params.id);
+	db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
 		.then((result) => res.status(200).json(result))
+		.then((result) => console.log(result))
 		.catch((err) => {
 			console.error(err);
 			res.send(err.errors);

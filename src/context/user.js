@@ -2,19 +2,28 @@ import React, { useReducer } from 'react';
 import Axios from 'axios';
 const initialState = {
 	user: null,
+	username: '',
 };
 
 export const SEARCH_USER = 'SEARCH_USER';
+export const SEARCH_EMAIL = 'SEARCH_EMAIL';
 export const UPDATE_USER = 'UPDATE_USER';
 
 const reducer = (state, action) => {
 	switch (action.type) {
 		case SEARCH_USER:
 			return {
+				...state,
 				user: action.payload,
+			};
+		case SEARCH_EMAIL:
+			return {
+				...state,
+				username: action.payload[0].username,
 			};
 		case UPDATE_USER:
 			return {
+				...state,
 				user: action.payload,
 			};
 	}
@@ -36,9 +45,18 @@ const StoreProvider = (props) => {
 				);
 			}
 		},
-        updateUser: (user, data)=> {
-            Axios.put(`/api/${user.username}`,data).then(()=> dispatch({type: UPDATE_USER, payload: data.data}))
-        }
+		emailSearch: (email) => {
+			if (email) {
+				Axios.get(`/api/email/${email}`).then((data) =>
+					dispatch({ type: SEARCH_EMAIL, payload: data.data })
+				);
+			}
+		},
+		updateUser: (id, data) => {
+			Axios.put(`/api/updateUser/${id}`, data).then(() =>
+				dispatch({ type: UPDATE_USER, payload: data.data })
+			);
+		},
 	};
 
 	return (
