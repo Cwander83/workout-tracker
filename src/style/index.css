@@ -1,3 +1,4 @@
-body {
+html, body {
+	height: 100vh;
 	background-color: #938e93;
 }

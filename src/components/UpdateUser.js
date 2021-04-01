@@ -8,8 +8,8 @@ const UpdateUser = () => {
 	const [goal, setGoal] = useState('');
 
 	const updateHandler = () => {
-		console.log('react id: ' + userState.user[0]._id);
-		userActions.updateUser(userState.user[0]._id, goal);
+		console.log('react id: ' + userState.user._id);
+		userActions.updateUser(userState.user._id, {"goal": goal});
 	};
 
 	return (

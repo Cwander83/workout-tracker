@@ -21,7 +21,7 @@ router.route('/').get((req, res) =>
 
 // ** Get Call Search by username
 router.route('/:username').get((req, res) =>
-	db.User.find({
+	db.User.findOne({
 		username: req.params.username,
 	})
 		.populate({
@@ -35,7 +35,7 @@ router.route('/:username').get((req, res) =>
 );
 // ** Get Call Search by username
 router.route('/email/:email').get((req, res) =>
-	db.User.find({
+	db.User.findOne({
 		email: req.params.email,
 	})
 
@@ -84,8 +84,7 @@ router.route('/addExercise/:id').post((req, res) => {
 
 // ** Update user goal
 router.route('/updateUser/:id').put((req, res) => {
-	console.log('***** id: ' + req.params.id);
-	db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+	db.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
 		.then((result) => res.status(200).json(result))
 		.then((result) => console.log(result))
 		.catch((err) => {

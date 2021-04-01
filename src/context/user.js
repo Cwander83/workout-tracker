@@ -19,7 +19,7 @@ const reducer = (state, action) => {
 		case SEARCH_EMAIL:
 			return {
 				...state,
-				username: action.payload[0].username,
+				username: action.payload.username,
 			};
 		case UPDATE_USER:
 			return {
@@ -52,8 +52,8 @@ const StoreProvider = (props) => {
 				);
 			}
 		},
-		updateUser: (id, data) => {
-			Axios.put(`/api/updateUser/${id}`, data).then(() =>
+		updateUser: (id, goal) => {
+			Axios.put(`/api/updateUser/${id}`, goal).then((data) =>
 				dispatch({ type: UPDATE_USER, payload: data.data })
 			);
 		},

@@ -17,7 +17,7 @@ function App() {
 		<>
 			<StoreProvider>
 				<Router>
-					<main className="h-full bg-grayish max-w-screen-sm mx-auto my-auto shadow-lg">
+					<main className="h-screen flex flex-col bg-grayish max-w-screen-sm mx-auto shadow-lg">
 						<Header />
 
 						<Switch>{routes}</Switch>
