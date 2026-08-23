@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Header from './components/Header.js';
-import Profile from './components/Profile.js';
+import routes from './routes/routes.js';
 
 function App() {
-	// const [data, setData] = useState([]);
-	// useEffect(() => {
-	// 	fetch('/api/')
-	// 		.then((res) => res.json())
-	// 		.then((results) => setData(results));
-	// }, []);
-
 	return (
-		<div className="h-full w-full bg-grayish">
-			<Header />
-			<div className="w-full flex flex-row justify-evenly">
-				<section className="w-2/5 bg-primary">
-					<Profile />
-				</section>
-				<section className="w-2/5 bg-white">
-					<h3>workout</h3>
-				</section>
+		<Router>
+			<div className="min-h-screen w-full bg-grayish">
+				<Header />
+				<Switch>{routes}</Switch>
 			</div>
-		</div>
+		</Router>
 	);
 }
 
