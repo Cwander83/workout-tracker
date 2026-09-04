@@ -4,10 +4,10 @@
 	"description": "workout tracker",
 	"main": "index.js",
 	"scripts": {
-		"client": "webpack serve --hot --config webpack.dev.js",
-    "server": "nodemon server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-		"build": "webpack --config webpack.prod.js",
+		"client": "NODE_OPTIONS=--openssl-legacy-provider webpack serve --hot --config webpack.dev.js",
+		"server": "nodemon server/index.js",
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.prod.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",
@@ -32,6 +32,7 @@
 		"mongodb": "^3.6.5",
 		"mongoose": "^5.12.2",
 		"nodemon": "^2.0.7",
+		"postcss": "^8.4.31",
 		"postcss-cli": "^8.3.1",
 		"postcss-loader": "^5.2.0",
 		"raw-loader": "^4.0.2",
@@ -47,5 +48,8 @@
 		"webpack-cli": "^4.6.0",
 		"webpack-dev-server": "^3.11.2",
 		"webpack-merge": "^5.7.3"
+	},
+	"dependencies": {
+		"react-router-dom": "^5.3.4"
 	}
 }

@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', api);
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(HTML_FILE);
 });
 app.listen(port, function () {
